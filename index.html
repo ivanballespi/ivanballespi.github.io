@@ -2,57 +2,58 @@
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>El meu portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Ballespí | Portfolio</title>
     <link rel="stylesheet" href="estil.css">
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-
 </head>
 <body>
 
-<header>
-    <header>
+<header class="main-header">
     <div class="logo">
         <img src="logo.png" alt="Logo Ivan Ballespí">
     </div>
-    <div class="idioma">
-        <label for="lang">Idioma:</label>
+    <nav class="idioma">
+        <label for="lang">🌐</label>
         <select id="lang">
             <option value="ca" selected>Català</option>
             <option value="es">Español</option>
             <option value="en">English</option>
         </select>
-    </div>
-</header>
-
+    </nav>
 </header>
 
 <main>
-    <h1>Ivan Ballespí</h1>
-    <p>Estudiant de DAW · Sistemes · Programació</p>
-
-    <section>
-        <h2>Projectes</h2>
-        <div class="projectes-container">
-
-            <div class="projecte-card color1">
-                <h3>Projecte 1 · GEF</h3>
-                <p>Aplicació sobre la Gestió d'una Explotació Fruitera</p>
-                <p>Fet amb: HTML, CSS, JS, PHP</p>
-                <a href="https://github.com/iballespi/projecte-gef" target="_blank" class="btn">Veure</a>
-            </div>
-        </div>
+    <section class="hero">
+        <h1>Ivan Ballespí</h1>
+        <p class="subtitle">Estudiant de Desenvolupament d'Aplicacions Web · Programació</p>
     </section>
 
-    <section>
+    <section id="projectes">
+        <h2>Projectes</h2>
+        <div class="projectes-container">
+            <article class="projecte-card color1">
+                <h3>Projecte 1 · GEF</h3>
+                <p>Gestió d'una Explotació Fruitera</p>
+                <small>Tecnologies: HTML, CSS, JS, PHP</small>
+                <div class="card-footer">
+                    <a href="https://github.com/iballespi/projecte-gef" target="_blank" class="btn">Veure Codi</a>
+                </div>
+            </article>
+            </div>
+    </section>
+
+    <section id="contacte" class="contacte">
         <h2>Contacte</h2>
-        <p>Email: ivanballmon23@gmail.com</p>
-        <p>GitHub: <a href="https://github.com/ivanballespi">github.com/ivanballespi</a></p>
+        <p>📧 <a href="mailto:ivanballmon23@gmail.com">ivanballmon23@gmail.com</a></p>
+        <p>📂 <a href="https://github.com/ivanballespi" target="_blank">github.com/ivanballespi</a></p>
     </section>
 </main>
 
+<footer>
+    <p>&copy; 2026 Ivan Ballespí</p>
+</footer>
+
 <script src="idiomes.js"></script>
-
-
-
 </body>
 </html>
