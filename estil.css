@@ -1,54 +1,70 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #222;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.idioma select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
 main {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 20px;
+    text-align: center;
+    padding: 40px 20px;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
-h2 {
-    margin-top: 40px;
-}
-
-p, li {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-a {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #000;
-}
 .projectes-container {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .projecte-card {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 12px;
     width: 250px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .projecte-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: 6px 6px 25px rgba(0,0,0,0.3);
+}
+
+.color1 {
+    background: #FFDDC1;
+    border-color: #FF9E80;
+}
+
+.color2 {
+    background: #C1FFD7;
+    border-color: #80FF9E;
+}
+
+.color3 {
+    background: #C1D4FF;
+    border-color: #809EFF;
 }
 
 .projecte-card h3 {
@@ -57,21 +73,16 @@ a {
 
 .btn {
     display: inline-block;
-    margin-top: 10px;
+    margin: 10px 5px 0 5px;
     padding: 8px 12px;
-    background: #4CAF50;
+    background: #FF6F61;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9em;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
 .btn:hover {
-    background: #45a049;
-}
-
-
-a:hover {
-    background-color: #000;
-    color: #fff;
+    background: #FF3B2F;
 }
