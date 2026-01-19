@@ -86,3 +86,17 @@ h1 {
 .btn:hover {
     background: #FF3B2F;
 }
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Logo a l’esquerra, idioma a la dreta */
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px; /* Ajusta segons el teu logo */
+    width: auto;
+}
+
