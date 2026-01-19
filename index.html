@@ -3,30 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>El meu portfolio</title>
-    <link rel="stylesheet" href="estil.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main>
-        <h1>Ivan Ballespí</h1>
-        <p>Estudiant de DAW · Programació</p>
-
-        <section>
-    <h2>Projectes</h2>
-    <div class="projectes-container">
-        <div class="projecte-card">
-            <h3>Projecte 1 · GEF</h3>
-            <p>Un projecte de gestió d'una explotació fruitera fet amb HTML, CSS, JavaScript, PHP.</p>
-            <a href="https://github.com/iballespi/projecte-gef" target="_blank"</a>
-        </div>
+<header>
+    <div class="idioma">
+        <label for="lang">Idioma:</label>
+        <select id="lang" onchange="canviarIdioma(this.value)">
+            <option value="ca" selected>Català</option>
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </div>
-</section>
-        <section>
-            <h2>Contacte</h2>
-            <p>Email: ivanballmon23@gmail.com</p>
-            <p>GitHub: <a href="https://github.com/ivanballespi">github.com/ivanballespi</a></p>
-        </section>
-    </main>
+</header>
+
+<main>
+    <h1>Ivan Ballespí</h1>
+    <p>Estudiant de DAW · Sistemes · Programació</p>
+
+    <section>
+        <h2>Projectes</h2>
+        <div class="projectes-container">
+
+            <div class="projecte-card color1">
+                <h3>Projecte 1 · GEF</h3>
+                <p>Gestió educativa amb HTML, CSS i JavaScript.</p>
+                <a href="https://github.com/iballespi/projecte-gef" target="_blank" class="btn">Veure codi</a>
+                <a href="https://iballespi.github.io/projecte-gef/" target="_blank" class="btn">Veure demo</a>
+            </div>
+
+            <div class="projecte-card color2">
+                <h3>Projecte 2</h3>
+                <p>Un projecte xulo amb descripció breu.</p>
+                <a href="#" class="btn">Veure codi</a>
+            </div>
+
+            <div class="projecte-card color3">
+                <h3>Projecte 3</h3>
+                <p>Exemple de projecte amb estil i colors!</p>
+                <a href="#" class="btn">Veure codi</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>Contacte</h2>
+        <p>Email: elmeucorreu@example.com</p>
+        <p>GitHub: <a href="https://github.com/iballespi">iballespi</a></p>
+    </section>
+</main>
+
+<script link="idiomes.js"></script>
+
+
 
 </body>
 </html>
