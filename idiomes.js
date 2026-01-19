@@ -1,94 +1,175 @@
-// Seleccionem el desplegable
-const selectorIdioma = document.getElementById('lang');
-
-// Mirem tots els elements que cal traduir
-const textos = {
-    header: {
-        label: {
-            ca: "Idioma:",
-            es: "Idioma:",
-            en: "Language:"
-        }
-    },
-    main: {
-        h1: {
-            ca: "Ivan Ballespí",
-            es: "Ivan Ballespí",
-            en: "Ivan Ballespí"
-        },
-        p: {
-            ca: "Estudiant de DAW · Sistemes · Programació",
-            es: "Estudiante de DAW · Sistemas · Programación",
-            en: "DAW Student · Systems · Programming"
-        }
-    },
-    projectes: {
-        h2: {
-            ca: "Projectes",
-            es: "Proyectos",
-            en: "Projects"
-        },
-        projecte1: {
-            h3: {
-                ca: "Projecte 1 · GEF",
-                es: "Proyecto 1 · GEF",
-                en: "Project 1 · GEF"
-            },
-            p1: {
-                ca: "Aplicació sobre la Gestió d'una Explotació Fruitera",
-                es: "Aplicación sobre la Gestión de una Explotación Frutal",
-                en: "Application for the Management of a Fruit Farm"
-            },
-            p2: {
-                ca: "Fet amb: HTML, CSS, JS, PHP",
-                es: "Hecho con: HTML, CSS, JS, PHP",
-                en: "Made with: HTML, CSS, JS, PHP"
-            },
-            btnCodi: {
-                ca: "Veure codi",
-                es: "Ver código",
-                en: "View code"
-            },
-            btnDemo: {
-                ca: "Veure demo",
-                es: "Ver demo",
-                en: "View demo"
-            }
-        }
-    },
-    contacte: {
-        h2: {
-            ca: "Contacte",
-            es: "Contacto",
-            en: "Contact"
-        }
-    }
-};
-
-// Funció que canvia l’idioma
-function canviarIdioma(lang) {
-    // Header
-    document.querySelector('label[for="lang"]').textContent = textos.header.label[lang];
-
-    // Main
-    document.querySelector('main h1').textContent = textos.main.h1[lang];
-    document.querySelector('main > p').textContent = textos.main.p[lang];
-
-    // Projectes
-    document.querySelector('section:nth-of-type(1) h2').textContent = textos.projectes.h2[lang];
-    document.querySelector('.projecte-card h3').textContent = textos.projectes.projecte1.h3[lang];
-    const pElements = document.querySelectorAll('.projecte-card p');
-    pElements[0].textContent = textos.projectes.projecte1.p1[lang];
-    pElements[1].textContent = textos.projectes.projecte1.p2[lang];
-    const btns = document.querySelectorAll('.projecte-card .btn');
-    btns[0].textContent = textos.projectes.projecte1.btnCodi[lang];
-    btns[1].textContent = textos.projectes.projecte1.btnDemo[lang];
-
-    // Contacte
-    document.querySelector('section:nth-of-type(2) h2').textContent = textos.contacte.h2[lang];
+/* ------------------------
+   Estils generals
+-------------------------*/
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
 }
 
-// Afegim l’escoltador d’esdeveniments
-selectorIdioma.addEventListener('change', function() {
-    canviarIdioma(this.value);
-});
+a {
+    text-decoration: none;
+}
+
+/* ------------------------
+   Header amb logo i idioma
+-------------------------*/
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permet adaptar-se en mòbils */
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+header .idioma {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+header .idioma select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* ------------------------
+   Main i títols
+-------------------------*/
+main {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* ------------------------
+   Projectes - cards
+-------------------------*/
+.projectes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.projecte-card {
+    width: 250px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projecte-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 6px 6px 25px rgba(0,0,0,0.3);
+}
+
+.projecte-card h3 {
+    margin-top: 0;
+}
+
+.projecte-card p {
+    margin: 8px 0;
+}
+
+/* Colors per projectes */
+.color1 { background: #FFDDC1; border-color: #FF9E80; }
+.color2 { background: #C1FFD7; border-color: #80FF9E; }
+.color3 { background: #C1D4FF; border-color: #809EFF; }
+
+/* Botons */
+.btn {
+    display: inline-block;
+    margin: 10px 5px 0 5px;
+    padding: 8px 12px;
+    background: #FF6F61;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #FF3B2F;
+}
+
+/* ------------------------
+   Contacte
+-------------------------*/
+section:nth-of-type(2) p {
+    margin: 5px 0;
+}
+
+/* ------------------------
+   Media Queries - Adaptatiu
+-------------------------*/
+
+/* Mòbils petits: menys de 480px */
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+
+    .projecte-card {
+        width: 90%; /* Cards ocupen quasi tota la pantalla */
+        padding: 15px;
+    }
+
+    header {
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    header .logo img {
+        height: 40px;
+    }
+}
+
+/* Tablets: 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .projecte-card {
+        width: 45%; /* 2 cartes per fila aproximadament */
+    }
+
+    header .logo img {
+        height: 45px;
+    }
+}
+
+/* Pantalles mitjanes: 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .projecte-card {
+        width: 30%; /* 3 cartes per fila */
+    }
+}
+
+/* Pantalles grans: més de 1025px */
+@media (min-width: 1025px) {
+    .projecte-card {
+        width: 250px; /* Width fix per a cards grans */
+    }
+}
