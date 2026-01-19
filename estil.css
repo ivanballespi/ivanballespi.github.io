@@ -31,6 +31,45 @@ a {
     text-decoration: none;
     border-bottom: 1px solid #000;
 }
+.projectes-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.projecte-card {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projecte-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.projecte-card h3 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
 
 a:hover {
     background-color: #000;
