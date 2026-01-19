@@ -13,7 +13,7 @@ const textos = {
     main: {
         h1: {
             ca: "Ivan Ballespí",
-            es: "Iván Ballespí",
+            es: "Ivan Ballespí",
             en: "Ivan Ballespí"
         },
         p: {
