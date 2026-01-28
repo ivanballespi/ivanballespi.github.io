@@ -1,4 +1,6 @@
-// 1. Definició de les traduccions
+// ==============================
+// 1. Traduccions
+// ==============================
 const texts = {
     ca: {
         title: "Ivan Ballespí",
@@ -7,7 +9,8 @@ const texts = {
         project1Desc: "Gestió d'una Explotació Fruitera",
         project1Tech: "Tecnologies: HTML, CSS, JS, PHP",
         contactTitle: "Contacte",
-        viewBtn: "Veure Codi"
+        viewBtn: "Veure Codi",
+        otherProjectsTitle: "Altres Projectes"
     },
     es: {
         title: "Ivan Ballespí",
@@ -16,7 +19,8 @@ const texts = {
         project1Desc: "Gestión de una Explotación Frutera",
         project1Tech: "Tecnologías: HTML, CSS, JS, PHP",
         contactTitle: "Contacto",
-        viewBtn: "Ver Código"
+        viewBtn: "Ver Código",
+        otherProjectsTitle: "Otros Proyectos"
     },
     en: {
         title: "Ivan Ballespí",
@@ -25,30 +29,30 @@ const texts = {
         project1Desc: "Fruit Farm Management App",
         project1Tech: "Technologies: HTML, CSS, JS, PHP",
         contactTitle: "Contact",
-        viewBtn: "View Code"
+        viewBtn: "View Code",
+        otherProjectsTitle: "Other Projects"
     }
 };
 
-// 2. Selecció d'elements de l'HTML (afegim IDs al teu HTML)
+// ==============================
+// 2. Canvi d'idioma
+// ==============================
 const langSelect = document.getElementById('lang');
 
-// Funció per canviar els textos
 function changeLanguage(lang) {
-    // Busquem els elements pels IDs que hem definit a l'HTML
     document.querySelector('.hero h1').textContent = texts[lang].title;
     document.querySelector('.subtitle').textContent = texts[lang].subtitle;
     document.querySelector('#projectes h2').textContent = texts[lang].projectsTitle;
-    document.querySelector('.projecte-card h3').innerHTML = `Projecte 1 · GEF`; // El títol es manté similar
+    document.querySelector('.projecte-card h3').innerHTML = `Projecte 1 · GEF`;
     document.querySelector('.projecte-card p').textContent = texts[lang].project1Desc;
     document.querySelector('.projecte-card small').textContent = texts[lang].project1Tech;
     document.querySelector('#contacte h2').textContent = texts[lang].contactTitle;
-    
-    // Canviar text de tots els botons (si en tinguessis més)
+    document.querySelector('.projects-slider h2').textContent = texts[lang].otherProjectsTitle;
+
     document.querySelectorAll('.btn').forEach(btn => {
         btn.textContent = texts[lang].viewBtn;
     });
 
-    // Guardar la preferència a l'ordinador de l'usuari
     localStorage.setItem('preferredLang', lang);
 }
 
@@ -56,9 +60,40 @@ langSelect.addEventListener('change', (e) => {
     changeLanguage(e.target.value);
 });
 
-
 window.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'ca';
     langSelect.value = savedLang;
     changeLanguage(savedLang);
 });
+
+// ==============================
+// 3. Slider “Altres Projectes”
+// ==============================
+const sliderTrack = document.querySelector('.slider-track');
+const slides = Array.from(sliderTrack.children);
+const btnNext = document.querySelector('.slider-btn.next');
+const btnPrev = document.querySelector('.slider-btn.prev');
+
+let indexActual = 0;
+
+function actualitzaSlider() {
+    if(slides.length === 0) return; // evita errors si no hi ha slides
+    const ampladaSlide = slides[0].getBoundingClientRect().width + 20; // + marge
+    sliderTrack.style.transform = `translateX(-${indexActual * ampladaSlide}px)`;
+}
+
+btnNext.addEventListener('click', () => {
+    if(indexActual < slides.length - 1) {
+        indexActual++;
+        actualitzaSlider();
+    }
+});
+
+btnPrev.addEventListener('click', () => {
+    if(indexActual > 0) {
+        indexActual--;
+        actualitzaSlider();
+    }
+});
+
+window.addEventListener('resize', actualitzaSlider);
