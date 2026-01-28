@@ -131,15 +131,23 @@ footer {
 .slider-track {
   display: flex;
   transition: transform 0.5s ease;
+  padding: 20px 0;
 }
 
 .slide {
-  min-width: 300px;
-  margin: 0 10px;
+  flex: 0 0 300px; /* Crucial: Keeps blocks at 300px width */
+  margin: 0 15px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 30px 20px; /* More padding so text doesn't touch edges */
+  box-sizing: border-box; /* Ensures padding doesn't break the width */
+    
+    /* Center the content inside the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
 }
 
 .slide img {
@@ -169,6 +177,13 @@ footer {
 .slider-track .slide:hover {
     transform: translateY(-10px) scale(1.05); /* s'aixeca i s'amplia una mica */
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);  /* ombra més visible */
+}
+
+.slide h3, .slide a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    word-wrap: break-word; /* Prevents long words from breaking layout */
 }
 
 
