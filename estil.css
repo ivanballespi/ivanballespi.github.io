@@ -159,9 +159,21 @@ footer {
   font-size: 1.5rem;
   border-radius: 50%;
 }
+/* Efecte hover per cada projecte del slider */
+.slider-track .slide {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
 
-.prev { left: 10px; }
-.next { right: 10px; }
+/* Quan el cursor està sobre la slide */
+.slider-track .slide:hover {
+    transform: translateY(-10px) scale(1.05); /* s'aixeca i s'amplia una mica */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);  /* ombra més visible */
+}
+
+
+.prev { left: 5px; }
+.next { right: 5px; }
 
 
 /* Responsive */
