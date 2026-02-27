@@ -1,134 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivan Ballespi</title>
+    <title>Marc Nom | Portafolio Experimental</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
         body { 
             font-family: 'Syne', sans-serif; 
-            background-color: #050505; /* Negre encara més profund */
+            background-color: #050505; 
             color: #fff;
-            overflow-x: hidden; /* Evita desplaçament horitzontal per elements flotants */
+            overflow: hidden; /* Mantiene la estética limpia en la landing */
         }
         
-        /* Efecte de text revelat al fer hover */
+        /* Efecto de texto hueco que se rellena al pasar el ratón */
         .reveal-text {
             position: relative;
             color: transparent;
             -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-            transition: all 0.5s ease;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .reveal-text:hover {
             color: #fff;
             -webkit-text-stroke: 1px transparent;
+            letter-spacing: 0.02em;
         }
 
-        /* Element decoratiu flotant amb animació */
+        /* Orbes decorativos con desenfoque (Glow) */
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff0055 0%, #ffcc00 100%);
-            filter: blur(80px);
-            opacity: 0.15;
-            animation: float 20s infinite linear;
+            background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
+            filter: blur(100px);
+            opacity: 0.12;
             z-index: -1;
+            animation: float 25s infinite alternate ease-in-out;
         }
+
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(100px, 100px) rotate(360deg); }
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, -50px) scale(1.2); }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#ff0055] selection:text-white">
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
 
-    <div class="floating-shape w-96 h-96 top-20 -left-20"></div>
-    <div class="floating-shape w-64 h-64 bottom-10 right-10 animation-delay-2000"></div>
+    <div class="floating-shape w-[500px] h-[500px] -top-20 -left-20"></div>
+    <div class="floating-shape w-[400px] h-[400px] bottom-0 right-0" style="animation-delay: -5s; background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);"></div>
 
-    <section class="min-h-screen flex flex-col justify-center px-6 md:px-20 py-20 relative">
-        <p class="text-xs font-bold uppercase tracking-[0.5em] text-zinc-500 mb-4">Personal Space of</p>
-        <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter leading-none mb-6">
-            <span class="block">Ivan</span>
-            <span class="block reveal-text">Ballespi</span>
-        </h1>
-        <p class="text-zinc-400 text-2xl md:text-3xl max-w-3xl leading-snug mb-12 Syne-normal">
-            Creative Developer exploring the intersection of <span class="text-white font-bold">code</span>, <span class="text-white font-bold">design</span>, and <span class="text-white font-bold">interaction</span>. Pushing boundaries, one pixel at a time.
-            </p>
-        <div class="flex gap-6">
-            <a href="#work" class="group flex items-center gap-3 text-xl font-bold text-white hover:text-zinc-300 transition-colors">
-                Explore Work
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <a href="mailto:hola@teudomini.com" class="text-xl font-bold text-zinc-500 hover:text-white transition-colors">
-                Get in Touch
-            </a>
-        </div>
-    </section>
-
-    <section id="work" class="px-6 md:px-20 py-32 border-t border-zinc-900">
-        <h2 class="text-5xl font-extrabold tracking-tighter mb-20 text-center">Featured Experiments</h2>
+    <main class="h-screen flex flex-col justify-center px-8 md:px-24 py-12 relative">
         
-        <div class="space-y-32">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center group">
-                <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=800&auto=format&fit=crop" alt="Projecte 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">View Experiment ↗</span>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#ffcc00] mb-2">Creative Coding</p>
-                    <h3 class="text-4xl font-extrabold tracking-tighter mb-4 text-white">Generative Art Generator</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-6 Syne-normal">
-                        An interactive tool that uses algorithms to create unique generative art pieces based on user input parameters. Explores the beauty of algorithmic randomness.
-                        </p>
-                    <div class="flex gap-2">
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">p5.js</span>
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">React</span>
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">Canvas API</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center group md:flex-row-reverse">
-                <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden relative md:order-2">
-                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop" alt="Projecte 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">View Experiment ↗</span>
-                    </div>
-                </div>
-                <div class="md:order-1">
-                    <p class="text-xs font-bold uppercase tracking-[0.3em] text-[#ff0055] mb-2">Interactive Installation</p>
-                    <h3 class="text-4xl font-extrabold tracking-tighter mb-4 text-white">Sound-Reactive Visualizer</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-6 Syne-normal">
-                        A real-time 3D visualization that responds to live audio input. Created for an electronic music event, blending sound frequencies with dynamic visual landscapes.
-                        </p>
-                    <div class="flex gap-2">
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">Three.js</span>
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">Web Audio API</span>
-                        <span class="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-500 font-bold uppercase tracking-wider">GLSL</span>
-                    </div>
-                </div>
-            </div>
+        <div class="mb-8 flex items-center gap-3">
+            <span class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
+            <p class="text-[10px] font-bold uppercase tracking-[0.6em] text-zinc-500">Espacio Personal de</p>
         </div>
-    </section>
 
-    <section class="px-6 md:px-20 py-32 bg-zinc-950/50 border-t border-zinc-900 text-center">
-        <h2 class="text-5xl font-extrabold tracking-tighter mb-12">Let's Create Something <span class="text-[#ff0055]">Insane</span>.</h2>
-        <p class="text-zinc-500 text-xl max-w-2xl mx-auto leading-relaxed mb-16 Syne-normal">
-            I'm always open to collaborating on unconventional projects, experimenting with new technologies, or just chatting about the future of creative coding. Feel free to reach out.
-            </p>
-        <a href="mailto:hola@teudomini.com" class="inline-block text-3xl font-extrabold tracking-tight text-white hover:text-[#ffcc00] transition-colors border-b-4 border-transparent hover:border-[#ffcc00] pb-2">
-            hola@teudomini.com
-        </a>
-    </section>
+        <h1 class="text-[12vw] md:text-[8vw] font-extrabold tracking-tighter leading-[0.85] mb-10">
+            <span class="block">IVAN</span>
+            <span class="block reveal-text">BALLESPI.</span>
+        </h1>
 
-    <footer class="px-6 md:px-20 py-10 text-center border-t border-zinc-900">
-        <p class="text-zinc-700 text-sm font-bold uppercase tracking-[0.3em]">Marc Nom • Experimental Space • 2024</p>
-    </footer>
+       <p class="text-zinc-500 text-lg md:text-xl max-w-xl leading-relaxed mb-16 font-bold uppercase tracking-[0.2em]">
+            Especializado en <span class="text-white">interfaces crudas</span> y sistemas que no se rompen. Enfocado en la ejecución, no en la narrativa.
+        </p>
+        
+        <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
+            
+            <a href="experiencia.html" class="group flex items-center gap-4 text-2xl font-extrabold text-white transition-all">
+                <span class="border-b-2 border-white/10 group-hover:border-cyan-500 pb-1 transition-colors">
+                    Explorar Trayectoria
+                </span>
+                <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="proyectos.html" class="group text-2xl font-extrabold text-zinc-500 hover:text-white transition-all duration-300">
+                <span class="italic">Ver Proyectos</span>
+                <span class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">↗</span>
+            </a>
+
+        </div>
+
+        <div class="absolute bottom-12 left-8 md:left-24 flex gap-8">
+            <a href="mailto:ivanballespi@proton.me" class="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-white transition-colors">Email</a>
+            <a href="#" class="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-white transition-colors">GitHub</a>
+        </div>
+
+    </main>
 
 </body>
 </html>
