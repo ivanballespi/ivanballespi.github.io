@@ -1,99 +1,125 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivan Ballespi</title>
-    
+    <title>Ivan Ballespí | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Syne', sans-serif; 
-            background-color: #050505; 
-            color: #fff;
-            overflow: hidden; /* Mantiene la estética limpia en la landing */
-        }
-        
-        /* Efecto de texto hueco que se rellena al pasar el ratón */
-        .reveal-text {
-            position: relative;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .reveal-text:hover {
-            color: #fff;
-            -webkit-text-stroke: 1px transparent;
-            letter-spacing: 0.02em;
-        }
-
-        /* Orbes decorativos con desenfoque (Glow) */
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
-            filter: blur(100px);
-            opacity: 0.12;
-            z-index: -1;
-            animation: float 25s infinite alternate ease-in-out;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, -50px) scale(1.2); }
-        }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(to right, #3b82f6, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="antialiased selection:bg-cyan-500 selection:text-white">
+<body class="bg-zinc-950 text-zinc-100 min-h-screen">
 
-    <div class="floating-shape w-[500px] h-[500px] -top-20 -left-20"></div>
-    <div class="floating-shape w-[400px] h-[400px] bottom-0 right-0" style="animation-delay: -5s; background: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);"></div>
-
-    <main class="h-screen flex flex-col justify-center px-8 md:px-24 py-12 relative">
-        
-        <div class="mb-8 flex items-center gap-3">
-            <span class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
-            <p class="text-[10px] font-bold uppercase tracking-[0.6em] text-zinc-500">Espacio Personal de</p>
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center glass">
+        <div class="text-xl font-black tracking-tighter uppercase">I. Ballespí</div>
+        <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
+            <button onclick="showPage('home')" class="hover:text-blue-400 transition cursor-pointer">Inici</button>
+            <button onclick="showPage('projectes')" class="hover:text-blue-400 transition cursor-pointer">Projectes</button>
+            <button onclick="showPage('experiencia')" class="hover:text-blue-400 transition cursor-pointer">Experiència</button>
+            <button onclick="showPage('formacio')" class="hover:text-blue-400 transition cursor-pointer">Formació</button>
         </div>
+    </nav>
 
-        <h1 class="text-[12vw] md:text-[8vw] font-extrabold tracking-tighter leading-[0.85] mb-10">
-            <span class="block">IVAN</span>
-            <span class="block reveal-text">BALLESPI.</span>
-        </h1>
+    <main class="pt-40 pb-20 px-6 max-w-6xl mx-auto">
 
-       <p class="text-zinc-500 text-lg md:text-xl max-w-xl leading-relaxed mb-16 font-bold uppercase tracking-[0.2em]">
-            Especializado en <span class="text-white">interfaces crudas</span> y sistemas que no se rompen. Enfocado en la ejecución, no en la narrativa.
-        </p>
-        
-        <div class="flex flex-col md:flex-row gap-8 items-start md:items-center">
-            
-            <a href="experiencia.html" class="group flex items-center gap-4 text-2xl font-extrabold text-white transition-all">
-                <span class="border-b-2 border-white/10 group-hover:border-cyan-500 pb-1 transition-colors">
-                    Explorar Trayectoria
-                </span>
-                <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                    </svg>
+        <section id="home" class="page active">
+            <div class="max-w-4xl">
+                <h1 class="text-7xl md:text-9xl font-black mb-6 leading-[0.85] tracking-tighter">IVAN<br>BALLESPÍ.</h1>
+                <p class="text-2xl text-zinc-400 font-light mb-12 border-l-4 border-blue-600 pl-6">Desenvolupador Web.</p>
+                
+                <div class="grid md:grid-cols-2 gap-4 mt-20">
+                    <div class="glass p-10 rounded-3xl hover:border-blue-500/30 transition group">
+                        <h3 class="text-xs uppercase tracking-widest text-zinc-500 mb-6 font-bold">Contacte Directe</h3>
+                        <a href="mailto:ivanballmon23@gmail.com" class="text-xl block mb-2 hover:text-blue-400 transition">ivanballmon23@gmail.com</a>
+                        <p class="text-zinc-500 italic">Disponible per a nous projectes.</p>
+                    </div>
+                    <div class="glass p-10 rounded-3xl flex flex-col justify-center">
+                        <h3 class="text-xs uppercase tracking-widest text-zinc-500 mb-6 font-bold">Xarxes</h3>
+                        <div class="flex gap-6">
+                            <a href="#" class="text-sm font-bold border-b-2 border-transparent hover:border-blue-500 transition">LINKEDIN</a>
+                            <a href="#" class="text-sm font-bold border-b-2 border-transparent hover:border-blue-500 transition">GITHUB</a>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
+        </section>
 
-            <a href="proyectos.html" class="group text-2xl font-extrabold text-zinc-500 hover:text-white transition-all duration-300">
-                <span class="italic">Ver Proyectos</span>
-                <span class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">↗</span>
-            </a>
+        <section id="projectes" class="page">
+            <h2 class="text-6xl font-black mb-16 uppercase tracking-tighter">Projectes<span class="text-blue-600">.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 flex items-center justify-center italic text-zinc-700">
+                    <p>Pròximament: Nou projecte en desenvolupament</p>
+                    <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="group relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 flex items-center justify-center italic text-zinc-700">
+                    <p>En procés de selecció...</p>
+                </div>
+            </div>
+        </section>
 
-        </div>
+        <section id="experiencia" class="page">
+            <h2 class="text-6xl font-black mb-16 uppercase tracking-tighter">Trajectòria<span class="text-blue-600">.</span></h2>
+            <div class="space-y-16">
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-zinc-500 font-mono pt-2">7 MESOS</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-3xl font-bold">Desenvolupador Web — TotInformatica</h3>
+                        <p class="text-blue-500 text-sm font-bold mb-4 uppercase tracking-widest">WordPress & SEO Specialist</p>
+                        <ul class="text-zinc-400 space-y-2 list-disc pl-5">
+                            <li>Desenvolupament i manteniment de webs amb WordPress.</li>
+                            <li>Gestió integral d'stock i catàlegs digitals.</li>
+                            <li>Optimització SEO i gestió estratègica de campanyes publicitàries.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-zinc-500 font-mono pt-2">5 MESOS</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-3xl font-bold">Help Desk — INS Mollerussa</h3>
+                        <p class="text-zinc-500 text-sm font-bold mb-4 uppercase tracking-widest">Suport Tècnic</p>
+                        <p class="text-zinc-400 italic">Manteniment d'equips, resolució d'incidències i suport directe a l'usuari en entorns educatius.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="absolute bottom-12 left-8 md:left-24 flex gap-8">
-            <a href="mailto:ivanballespi@proton.me" class="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-white transition-colors">Email</a>
-            <a href="https:/github.com/ivanballespi" class="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-white transition-colors">GitHub</a>
-        </div>
+        <section id="formacio" class="page">
+            <h2 class="text-6xl font-black mb-16 uppercase tracking-tighter">Estudis<span class="text-blue-600">.</span></h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass p-12 rounded-[3rem] hover:bg-zinc-900 transition">
+                    <h3 class="text-2xl font-black mb-2 leading-tight">CFGS Desenvolupament d'Aplicacions Web (DAW)</h3>
+                    <p class="text-blue-500 font-bold mb-4">Grau Superior</p>
+                </div>
+                <div class="glass p-12 rounded-[3rem] hover:bg-zinc-900 transition">
+                    <h3 class="text-2xl font-black mb-2 leading-tight">CFGM Sistemes Microinformàtics i Xarxes (SMX)</h3>
+                    <p class="text-blue-500 font-bold mb-4">Grau Mitjà</p>
+                </div>
+                <div class="md:col-span-2 glass p-12 rounded-[3rem] border-blue-900/30">
+                    <h3 class="text-xl font-bold mb-2">Bootcamp Ciberseguretat</h3>
+                    <p class="text-zinc-500">Formació intensiva amb Segur(). Focus en seguretat ofensiva i protecció d'actius.</p>
+                </div>
+            </div>
+        </section>
 
     </main>
 
+    <footer class="p-20 text-center border-t border-zinc-900">
+        <p class="text-xs text-zinc-600 tracking-[0.3em] uppercase">&copy; 2026 Ivan Ballespí — Fet amb Tailwind & JS</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 </body>
 </html>
